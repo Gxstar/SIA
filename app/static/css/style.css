@@ -1,0 +1,626 @@
+/* ETF量化助手 - 样式表 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 头部导航 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* 主内容区 */
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* 左侧边栏 */
+.sidebar {
+    width: 280px;
+    background: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.etf-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.etf-card {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.etf-card:hover {
+    border-color: var(--primary-color);
+    background: #f0f7ff;
+}
+
+.etf-card.active {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+.etf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.etf-card-code {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.etf-card-change {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.change-positive {
+    color: var(--success-color);
+    background: #dcfce7;
+}
+
+.change-negative {
+    color: var(--danger-color);
+    background: #fee2e2;
+}
+
+.etf-card-name {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.etf-card-price {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* 添加ETF */
+.add-etf {
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 8px;
+}
+
+.add-etf input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* 右侧主面板 */
+.main-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: var(--bg-color);
+}
+
+/* ETF信息头部 */
+.etf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.etf-info h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.etf-code {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.etf-price .price {
+    font-size: 28px;
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+.etf-price .change {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 图表区域 */
+.chart-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.chart-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.chart-container {
+    height: 350px;
+    padding: 16px;
+}
+
+/* 策略建议区 */
+.strategy-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.strategy-section h3 {
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.strategy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.strategy-card {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.strategy-card.buy {
+    border-color: var(--success-color);
+    background: #f0fdf4;
+}
+
+.strategy-card.sell {
+    border-color: var(--danger-color);
+    background: #fef2f2;
+}
+
+.strategy-card.hold {
+    border-color: var(--warning-color);
+    background: #fffbeb;
+}
+
+.strategy-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.strategy-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.strategy-signal {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.signal-buy {
+    background: var(--success-color);
+    color: white;
+}
+
+.signal-sell {
+    background: var(--danger-color);
+    color: white;
+}
+
+.signal-hold {
+    background: var(--warning-color);
+    color: white;
+}
+
+.strategy-confidence {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* 最终建议 */
+.final-advice {
+    margin-top: 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.final-advice-header {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.final-advice-content {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.llm-advice {
+    margin-top: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* 历史记录区 */
+.history-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+.history-section h3 {
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.history-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.history-controls input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.history-table-container {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+    background: var(--bg-color);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.history-table td {
+    font-size: 14px;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .etf-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .strategy-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 通知动画 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 加载状态 */
+.etf-card.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 策略卡片动画 */
+.strategy-card {
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 图表加载状态 */
+.chart-container.loading::after {
+    content: '加载中...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #64748b;
+}
+
+/* 全局加载遮罩 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* 加载动画 */
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-message {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.loading-progress-bar {
+    width: 200px;
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+
+.loading-progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+    animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+        margin-left: 0;
+    }
+    50% {
+        width: 70%;
+        margin-left: 15%;
+    }
+    100% {
+        width: 0%;
+        margin-left: 100%;
+    }
+}
+
+/* 骨架屏 */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.skeleton-title {
+    height: 24px;
+    width: 60%;
+    margin-bottom: 12px;
+}
+
+.skeleton-card {
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
